@@ -34,34 +34,29 @@ public class Player_stats_Controller {
 		return p;
 	}
 	
-	/*	For Filter Data By no Of games played  */
-	@RequestMapping("/apply-filter/Get-Data/By-Games-Played/{games}")
-	public ResponseEntity<List<Player_stats>> getByGamesPlayed(@PathVariable("games") int games){
-		List<Player_stats> l=service.getAllDataByGames(games);
-		return ResponseEntity.status(200).body(l);
-		
-	}
-		
-	/*	For Filter Data By no Of minutes played  */
-	@RequestMapping("/apply-filter/Get-Data/By-Played-Minutes/{minutes}")
-	public ResponseEntity<List<Player_stats>> getByPlayedMinutes(@PathVariable("minutes") int minutes){
-		List<Player_stats> l=service.getAllDataByMinutes(minutes);
-		return ResponseEntity.status(200).body(l);
+	@RequestMapping("/filter/ByGames/{games}")
+	public List<Player_stats> getAllDataByGames(@PathVariable("games") int games) {
+		return this.service.getAllDataByGames(games);
 	}
 	
-	/*	For Filter Data By no Of score of goals  */
-	@RequestMapping("/apply-filter/Get-Data/By-ScoreOfGoal/{goals}")
-	public ResponseEntity<List<Player_stats>> getByScoreOfGoals(@PathVariable("goals") int goals){
-		List<Player_stats> l=service.getAllDataByScoreOfGoal(goals);
-		return ResponseEntity.status(200).body(l);
+	/*	For Filter Data By no Of minutes played  */
+	@RequestMapping("/filter/ByMinutes/{minutes}")
+	public List<Player_stats> getAllDataByMinutes(@PathVariable("minutes") int minutes) {
+		return this.service.getAllDataByMinutes(minutes);
 	}
-		
-	/*	For Filter Data By Year Of Birth  */
-	@RequestMapping("/apply-filter/Get-Data/By-BirthYear/{birth_year}")
-	public ResponseEntity<List<Player_stats>> getByBirthYear(@PathVariable("birth_year") int birth_year){
-		List<Player_stats> l=service.getAllDataByBirthYear(birth_year);
-		return ResponseEntity.status(200).body(l);
-	} 
+	
+	/*	For Filter Data By no Of Score Of Goals */
+	@RequestMapping("/filter/ByGoals/{goals}")
+	public List<Player_stats> getAllDataByGoals(@PathVariable("goals") int goals) {
+		return this.service.getAllDataByGoals(goals);
+	}
+	
+	/*	For Filter Data By Birth Year */
+	@RequestMapping("/filter/ByBirthYear/{birth}")
+	public List<Player_stats> getAllDataByBirthYear(@PathVariable("birth") int birth) {
+		return this.service.getAllDataByBirthYear(birth);
+	}
 	
 }
+
 
