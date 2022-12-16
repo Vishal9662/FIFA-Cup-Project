@@ -10,11 +10,13 @@ import com.vh.IQ.FIFA.Cup.entity.Player_defence;
 @Repository
 public interface Player_defence_Repository extends JpaRepository<Player_defence, Integer> {
 
-	public List<Player_defence> findDataByPosition(String position);
+	List<Player_defence> findByPosition(String position);
+
+	List<Player_defence> findByTeam(String team);
+
+	List<Player_defence> findByTackles(int tackles);
+
+	List<Player_defence> findByWontackles(int wontackles);
+
 	
-	public List<Player_defence> findDataByTeam(String team);
-	
-	public List<Player_defence> findDataByTackles(Integer tackels);
-	
-	public List<Player_defence> findDataByTacklesWon(Integer tackels_won);
 }
